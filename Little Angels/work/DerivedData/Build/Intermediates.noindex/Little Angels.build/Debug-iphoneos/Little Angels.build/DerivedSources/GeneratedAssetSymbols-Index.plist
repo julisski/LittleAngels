@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>colors</key>
+	<array/>
+	<key>images</key>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/Little Angels/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCowAngel</string>
+			<key>relativePath</key>
+			<string>./CowAngel.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cowAngel</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/Little Angels/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameMouseAngel</string>
+			<key>relativePath</key>
+			<string>./MouseAngel.imageset</string>
+			<key>swiftSymbol</key>
+			<string>mouseAngel</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/Little Angels/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameSheepAngel</string>
+			<key>relativePath</key>
+			<string>./SheepAngel.imageset</string>
+			<key>swiftSymbol</key>
+			<string>sheepAngel</string>
+		</dict>
+	</array>
+	<key>symbols</key>
+	<array/>
+</dict>
+</plist>

@@ -1,0 +1,136 @@
+{
+  "source": "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/Little Angels/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Home",
+        "location": {
+          "startingColumn": 49,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "Collection",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "Shop",
+        "location": {
+          "startingColumn": 49,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "LITTLE ANGELS",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "A little day together",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 109
+        }
+      },
+      {
+        "comment": "",
+        "key": "✦",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 160
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your shelf is waiting for its first angel.",
+        "location": {
+          "startingColumn": 56,
+          "startingLine": 208
+        }
+      },
+      {
+        "comment": "",
+        "key": "You have %lld coins",
+        "location": {
+          "startingColumn": 107,
+          "startingLine": 217
+        }
+      },
+      {
+        "comment": "",
+        "key": "✦  LITTLE ANGELS  ✦",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 239
+        }
+      },
+      {
+        "comment": "",
+        "key": "A tiny friend,\na whole lot of love.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 240
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose your first angel and give them a name.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 241
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your angel's name",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 254
+        }
+      },
+      {
+        "comment": "",
+        "key": "Welcome home",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 256
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 290
+        }
+      },
+      {
+        "comment": "",
+        "key": "YOUR CURRENT FRIEND",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 338
+        }
+      }
+    ]
+  },
+  "version": 1
+}

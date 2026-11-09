@@ -1,0 +1,63 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildOnly"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "f3c47b8f71dc925369fadee2047d2479ded555b8633cc2107d7d1ed4356fae37"
+    }
+  ],
+  "containerPath" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/Little Angels.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "undefined_arch",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : true,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator26.2",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "i386",
+        "x86_64"
+      ],
+      "targetArchitecture" : "undefined_arch"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Products",
+      "derivedDataPath" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "CODE_SIGNING_ALLOWED" : "NO"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "YES",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

@@ -1,0 +1,39 @@
+{
+  "" : {
+    "diagnostics" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little Angels-primary.dia",
+    "emit-module-dependencies" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little Angels-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little Angels-primary-emit-module.dia",
+    "pch" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little Angels-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little Angels-primary.swiftdeps"
+  },
+  "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/Little Angels/ContentView.swift" : {
+    "const-values" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/Little Angels/Little_AngelsApp.swift" : {
+    "const-values" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little_AngelsApp.swiftconstvalues",
+    "dependencies" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little_AngelsApp.d",
+    "diagnostics" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little_AngelsApp.dia",
+    "index-unit-output-path" : "/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little_AngelsApp.o",
+    "llvm-bc" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little_AngelsApp.bc",
+    "object" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little_AngelsApp.o",
+    "swift-dependencies" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little_AngelsApp.swiftdeps",
+    "swiftmodule" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/Little_AngelsApp~partial.swiftmodule"
+  },
+  "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/vanessarodriguez/Downloads/Project Angel/Little Angels/work/DerivedData/Build/Intermediates.noindex/Little Angels.build/Debug-iphonesimulator/Little Angels.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
