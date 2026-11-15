@@ -1,0 +1,6 @@
+
+# Xcode temporary files
+.DS_Store
+DerivedData/
+*.xcuserstate
+xcuserdata/

@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-private struct Angel: Identifiable, Codable, Equatable {
+struct Angel: Identifiable, Codable, Equatable {
     let id: String
     let name: String
     let subtitle: String
@@ -24,7 +24,16 @@ private struct Angel: Identifiable, Codable, Equatable {
     }
 }
 
-private struct GameSave: Codable {
+enum PetStatTuning {
+    static let decayInterval: TimeInterval = 10
+    static let updateCheckInterval: TimeInterval = 1
+    static let hungerLossPerInterval = 1.0
+    static let happinessLossPerInterval = 1.0
+    static let awakeEnergyLossPerInterval = 1.0
+    static let sleepingEnergyGainPerInterval = 2.0
+}
+
+struct GameSave: Codable {
     var selectedAngelID: String?
     var petName = ""
     var hunger = 74.0
@@ -32,20 +41,79 @@ private struct GameSave: Codable {
     var energy = 82.0
     var coins = 50
     var unlockedIDs: Set<String> = []
+    var roomWallpaper = "blush"
+    var roomFloor = "creamWood"
+    var roomBed = "roseBed"
+    var roomRug = "lilacRug"
+    var roomDecorations: Set<String> = ["plant", "lamp", "toy"]
+    var lastStatsUpdate: Date?
+    var isSleeping = false
+
+    private enum CodingKeys: String, CodingKey {
+        case selectedAngelID, petName, hunger, happiness, energy, coins, unlockedIDs
+        case roomWallpaper, roomFloor, roomBed, roomRug, roomDecorations, lastStatsUpdate, isSleeping
+    }
+
+    init(selectedAngelID: String? = nil, petName: String = "", hunger: Double = 74, happiness: Double = 78, energy: Double = 82, coins: Int = 50, unlockedIDs: Set<String> = [], roomWallpaper: String = "blush", roomFloor: String = "creamWood", roomBed: String = "roseBed", roomRug: String = "lilacRug", roomDecorations: Set<String> = ["plant", "lamp", "toy"], lastStatsUpdate: Date? = nil, isSleeping: Bool = false) {
+        self.selectedAngelID = selectedAngelID
+        self.petName = petName
+        self.hunger = hunger
+        self.happiness = happiness
+        self.energy = energy
+        self.coins = coins
+        self.unlockedIDs = unlockedIDs
+        self.roomWallpaper = roomWallpaper
+        self.roomFloor = roomFloor
+        self.roomBed = roomBed
+        self.roomRug = roomRug
+        self.roomDecorations = roomDecorations
+        self.lastStatsUpdate = lastStatsUpdate
+        self.isSleeping = isSleeping
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        selectedAngelID = try values.decodeIfPresent(String.self, forKey: .selectedAngelID)
+        petName = try values.decodeIfPresent(String.self, forKey: .petName) ?? ""
+        hunger = try values.decodeIfPresent(Double.self, forKey: .hunger) ?? 74
+        happiness = try values.decodeIfPresent(Double.self, forKey: .happiness) ?? 78
+        energy = try values.decodeIfPresent(Double.self, forKey: .energy) ?? 82
+        coins = try values.decodeIfPresent(Int.self, forKey: .coins) ?? 50
+        unlockedIDs = try values.decodeIfPresent(Set<String>.self, forKey: .unlockedIDs) ?? []
+        roomWallpaper = try values.decodeIfPresent(String.self, forKey: .roomWallpaper) ?? "blush"
+        roomFloor = try values.decodeIfPresent(String.self, forKey: .roomFloor) ?? "creamWood"
+        roomBed = try values.decodeIfPresent(String.self, forKey: .roomBed) ?? "roseBed"
+        roomRug = try values.decodeIfPresent(String.self, forKey: .roomRug) ?? "lilacRug"
+        roomDecorations = try values.decodeIfPresent(Set<String>.self, forKey: .roomDecorations) ?? ["plant", "lamp", "toy"]
+        lastStatsUpdate = try values.decodeIfPresent(Date.self, forKey: .lastStatsUpdate)
+        isSleeping = try values.decodeIfPresent(Bool.self, forKey: .isSleeping) ?? false
+    }
 }
 
 @MainActor
-private final class PetViewModel: ObservableObject {
+final class PetViewModel: ObservableObject {
     @Published var save: GameSave { didSet { persist() } }
     private let saveKey = "littleAngels.save.v1"
 
     init() {
         if let data = UserDefaults.standard.data(forKey: "littleAngels.save.v1"),
            let loaded = try? JSONDecoder().decode(GameSave.self, from: data) {
-            save = loaded
+            var singlePetSave = loaded
+            singlePetSave.selectedAngelID = "lumi"
+            singlePetSave.unlockedIDs.insert("lumi")
+            if singlePetSave.petName.isEmpty || Angel.all.contains(where: { $0.name == singlePetSave.petName }) {
+                singlePetSave.petName = "Lumi"
+            }
+            save = singlePetSave
         } else {
-            save = GameSave()
+            var newSave = GameSave()
+            newSave.selectedAngelID = "lumi"
+            newSave.petName = "Lumi"
+            newSave.unlockedIDs.insert("lumi")
+            save = newSave
         }
+        applyElapsedStatChanges(at: Date())
+        persist()
     }
 
     var selectedAngel: Angel? { Angel.all.first { $0.id == save.selectedAngelID } }
@@ -57,9 +125,48 @@ private final class PetViewModel: ObservableObject {
         save.unlockedIDs.insert(angel.id)
     }
 
-    func feed() { save.hunger = min(100, save.hunger + 24); save.happiness = min(100, save.happiness + 5) }
-    func play() { save.happiness = min(100, save.happiness + 20); save.energy = max(0, save.energy - 13); save.hunger = max(0, save.hunger - 5) }
-    func sleep() { save.energy = min(100, save.energy + 28) }
+    func feed() {
+        applyElapsedStatChanges(at: Date())
+        save.hunger = min(100, save.hunger + 24); save.happiness = min(100, save.happiness + 5)
+    }
+    func play() {
+        applyElapsedStatChanges(at: Date())
+        save.happiness = min(100, save.happiness + 20); save.energy = max(0, save.energy - 13); save.hunger = max(0, save.hunger - 5)
+    }
+    func beginSleeping() {
+        applyElapsedStatChanges(at: Date())
+        save.isSleeping = true
+        save.energy = min(100, save.energy + 28)
+    }
+    func wake() {
+        applyElapsedStatChanges(at: Date())
+        save.isSleeping = false
+    }
+    func bathe() {
+        applyElapsedStatChanges(at: Date())
+        save.happiness = min(100, save.happiness + 10); save.energy = max(0, save.energy - 4)
+    }
+    func applyElapsedStatChanges(at now: Date) {
+        var updated = save
+        guard let lastUpdate = updated.lastStatsUpdate else {
+            updated.lastStatsUpdate = now
+            save = updated
+            return
+        }
+        let elapsed = max(0, now.timeIntervalSince(lastUpdate))
+        let intervals = Int(elapsed / PetStatTuning.decayInterval)
+        guard intervals > 0 else { return }
+        let count = Double(intervals)
+        updated.hunger = min(100, max(0, updated.hunger - PetStatTuning.hungerLossPerInterval * count))
+        updated.happiness = min(100, max(0, updated.happiness - PetStatTuning.happinessLossPerInterval * count))
+        if updated.isSleeping {
+            updated.energy = min(100, max(0, updated.energy + PetStatTuning.sleepingEnergyGainPerInterval * count))
+        } else {
+            updated.energy = min(100, max(0, updated.energy - PetStatTuning.awakeEnergyLossPerInterval * count))
+        }
+        updated.lastStatsUpdate = lastUpdate.addingTimeInterval(Double(intervals) * PetStatTuning.decayInterval)
+        save = updated
+    }
     func unlock(_ angel: Angel) {
         guard save.coins >= angel.price, !save.unlockedIDs.contains(angel.id) else { return }
         save.coins -= angel.price
@@ -92,25 +199,8 @@ struct ContentView: View {
     }
 
     var body: some View {
-        ZStack {
-            Palette.cream.ignoresSafeArea()
-            if model.selectedAngel == nil {
-                AdoptionView { angel, name in model.adopt(angel, name: name) }
-            } else {
-                TabView(selection: $selection) {
-                    home.tag(0).tabItem { Label("Home", systemImage: "house.fill") }
-                    collection.tag(1).tabItem { Label("Collection", systemImage: "sparkles") }
-                    shop.tag(2).tabItem { Label("Shop", systemImage: "basket.fill") }
-                }
-                .tint(Palette.pink)
-            }
-        }
-        .preferredColorScheme(.light)
-        .sheet(isPresented: $showing3DRoom) {
-            if let angel = model.selectedAngel {
-                RealityPetRoom(petName: model.save.petName, modelResourceName: angel.imageName)
-            }
-        }
+        PetHomeScreen(viewModel: model)
+            .preferredColorScheme(.light)
     }
 
     private var home: some View {
@@ -149,7 +239,7 @@ struct ContentView: View {
                     if petAction == .sleeping {
                         startPetAction(.idle); show("Good morning! ☀️")
                     } else {
-                        model.sleep(); startPetAction(.sleeping); show("Sweet dreams ☾")
+                        model.beginSleeping(); startPetAction(.sleeping); show("Sweet dreams ☾")
                     }
                 }
             }.padding(.horizontal, 22).padding(.top, 16).padding(.bottom, 12)
